@@ -18,7 +18,7 @@ x-database-url: &database-url postgresql+psycopg://iter:${ITER_DB_PASSWORD:?ITER
 
 services:
   iter-postgres:
-    image: postgres:17.10-bookworm@sha256:9b18b78397054fce88a9552e9d5a3ad5bb7fd258c5b3cc1c5028e46373d6ea8f
+    image: postgres:17.11-bookworm@sha256:3645570cccdfa447589da9f57dd740faa29b30938e861289a5574b6ca6b03826
     container_name: iter-postgres
     command: ["postgres", "-c", "shared_buffers=64MB", "-c", "max_connections=30"]
     environment:
@@ -128,7 +128,7 @@ services:
   # belong to uid 999, the postgres image's user
   iter-backup:
     <<: *hardened
-    image: postgres:17.10-bookworm@sha256:9b18b78397054fce88a9552e9d5a3ad5bb7fd258c5b3cc1c5028e46373d6ea8f
+    image: postgres:17.11-bookworm@sha256:3645570cccdfa447589da9f57dd740faa29b30938e861289a5574b6ca6b03826
     container_name: iter-backup
     user: "999:999"
     entrypoint:
